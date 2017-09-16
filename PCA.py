@@ -12,9 +12,9 @@ def img2vector(filename, scale):
 
 # load image from diretion
 def loadimage(dataSetDir, k, scale):
-    train_face = np.zeros((40 * k, int(112 * 92 * scale * scale)))  # image size:112*92
+    train_face = np.zeros((40 * k, int(112 * scale) * int(92 * scale)))  # image size:112*92
     train_face_number = np.zeros(40 * k).astype(np.int8)
-    test_face = np.zeros((40 * (10 - k), int(112 * 92 * scale * scale)))
+    test_face = np.zeros((40 * (10 - k), int(112 * scale) * int(92 * scale)))
     test_face_number = np.zeros(40 * (10 - k)).astype(np.int8)
     for i in np.linspace(1, 40, 40).astype(np.int8): #40 sample people
             people_num = i
@@ -39,7 +39,7 @@ def submean(target_data, mean_data):
     return target_data
 
 print("Project Start...")
-scale = 0.6
+scale = 0.75
 k = 4
 train_face,train_face_number,test_face,test_face_number = loadimage(os.getcwd()+'/att_faces',k,scale)
 img_mean = train_face.mean(axis = 0).reshape((1, train_face.shape[1]))
