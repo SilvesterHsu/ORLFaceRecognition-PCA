@@ -39,7 +39,7 @@ def submean(target_data, mean_data):
     return target_data
 
 print("Project Start...")
-scale = 0.8
+scale = 0.7
 k = 4
 train_face,train_face_number,test_face,test_face_number = loadimage(os.getcwd()+'/att_faces',k,scale)
 img_mean = train_face.mean(axis = 0).reshape((1, train_face.shape[1]))
