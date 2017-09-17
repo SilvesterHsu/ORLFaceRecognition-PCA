@@ -58,12 +58,12 @@ mix = np.vstack((l,v))
 mix = mix.T[np.lexsort(mix[::-1,:])].T[:,::-1]
 v = np.delete(mix, 0, axis = 0)
 
-plt.figure('Feature Map')
-r, c = (4, 10)
-for i in np.linspace(1, r * c, r * c).astype(np.int8):
-    plt.subplot(r,c,i)
-    plt.imshow(v[:, i-1].real.reshape(int(112 * scale), int(92 * scale)), cmap='gray')
-    plt.axis('off')
+#plt.figure('Feature Map')
+#r, c = (4, 10)
+#for i in np.linspace(1, r * c, r * c).astype(np.int8):
+#    plt.subplot(r,c,i)
+#    plt.imshow(v[:, i-1].real.reshape(int(112 * scale), int(92 * scale)), cmap='gray')
+#    plt.axis('off')
 
 v = v[:,0:100]
 
