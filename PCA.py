@@ -39,7 +39,7 @@ def submean(target_data, mean_data):
     return target_data
 
 print("Project Start...")
-scale = 0.7
+scale = 0.8
 k = 4
 train_face,train_face_number,test_face,test_face_number = loadimage(os.getcwd()+'/att_faces',k,scale)
 img_mean = train_face.mean(axis = 0).reshape((1, train_face.shape[1]))
@@ -52,12 +52,18 @@ l = np.zeros(train_face.shape[1])
 v = np.zeros((train_face.shape[1],train_face.shape[1]))
 #l, v = la.eig(cov)
 print("Calculate l & v")
-l, v = np.linalg.eigh(cov)
+l, v = np.linalg.eig(cov)
 
 mix = np.vstack((l,v))
 mix = mix.T[np.lexsort(mix[::-1,:])].T[:,::-1]
 v = np.delete(mix, 0, axis = 0)
 
+plt.figure('Feature Map')
+r, c = (4, 10)
+for i in np.linspace(1, r * c, r * c).astype(np.int8):
+    plt.subplot(r,c,i)
+    plt.imshow(v[:, i-1].real.reshape(int(112 * scale), int(92 * scale)), cmap='gray')
+    plt.axis('off')
 
 v = v[:,0:100]
 
