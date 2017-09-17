@@ -17,7 +17,6 @@ We choose [The ORL Database of Faces](http://www.cl.cam.ac.uk/research/dtg/attar
 We use *Euclidean Metric* to measure the distance between two coordinate points in high dimensional space (each coordinate point represents a face image). The smaller the metric, the closer the two coordinate points are in the high-dimensional space (not near the strict sense, but near the Euclidean space), the more the face image represented by the two coordinate points similar. Here you can set the distance threshold to determine the distance at which the two coordinate points represented the same face.  
 ![image](https://user-images.githubusercontent.com/20944641/30518885-4459e9f0-9bbc-11e7-988d-fb78164b13c0.png)  
 
-***
 ## Installation
 The program uses **Mac OS 10.10** as a test platform, **Ubuntu 16.04** can work as well. Other operating systems have yet to be tested. Program uses Python3 as the programming language, so you also need to install Python3 environment, and will also need to use `pip3` to install some necessary packages.
 ### Environment
@@ -50,7 +49,7 @@ The necessary packages are already in the file *requirements.txt*. So you can us
 ```
 pip install -r requirements.txt
 ```  
-***
+
 ## TODO
 
 
