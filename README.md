@@ -15,7 +15,7 @@ We choose [The ORL Database of Faces](http://www.cl.cam.ac.uk/research/dtg/attar
 
 ### 2. recognition
 We use *Euclidean Metric* to measure the distance between two coordinate points in high dimensional space (each coordinate point represents a face image). The smaller the metric, the closer the two coordinate points are in the high-dimensional space (not near the strict sense, but near the Euclidean space), the more the face image represented by the two coordinate points similar. Here you can set the distance threshold to determine the distance at which the two coordinate points represented the same face.  
-![image](https://user-images.githubusercontent.com/20944641/30518831-f8b97160-9bba-11e7-903f-87104209c302.png)  
+![image](https://user-images.githubusercontent.com/20944641/30518885-4459e9f0-9bbc-11e7-988d-fb78164b13c0.png)  
 
 ***
 ## Installation
