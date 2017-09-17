@@ -49,9 +49,9 @@ You can use `python3 -V` to check your python version.
  
 ### Step 2: Install Packages
 
-The necessary packages are already in the file *requirements.txt*. So you can use `pip3` to install them easily.  
+The necessary packages are already in the file `requirements.txt`. So you can use `pip3` to install them easily.  
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```  
 
 ## TODO: 
