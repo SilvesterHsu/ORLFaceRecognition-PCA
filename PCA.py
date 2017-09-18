@@ -3,15 +3,17 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 from scipy import misc
+scale = 0.4
+k = 4
 
 # covert image to vector
-def img2vector(filename, scale):
+def img2vector(filename):
     imgVector = misc.imresize(plt.imread(filename), scale).flatten()
     #imgVector = plt.imread(filename).flatten()
     return imgVector.astype(np.float)
 
 # load image from diretion
-def loadimage(dataSetDir, k, scale):
+def loadimage(dataSetDir):
     train_face = np.zeros((40 * k, int(112 * scale) * int(92 * scale)))  # image size:112*92
     train_face_number = np.zeros(40 * k).astype(np.int8)
     test_face = np.zeros((40 * (10 - k), int(112 * scale) * int(92 * scale)))
@@ -21,12 +23,12 @@ def loadimage(dataSetDir, k, scale):
             for j in np.linspace(1, 10, 10).astype(np.int8): #everyone has 10 different face
                 if j <= k:
                     filename = dataSetDir+'/s'+str(people_num)+'/'+str(j)+'.pgm'
-                    img = img2vector(filename, scale)
+                    img = img2vector(filename)
                     train_face[(i-1)*k+(j-1),:] = img
                     train_face_number[(i-1)*k+(j-1)] = people_num
                 else:
                     filename = dataSetDir+'/s'+str(people_num)+'/'+str(j)+'.pgm'
-                    img = img2vector(filename, scale)
+                    img = img2vector(filename)
                     test_face[(i-1)*(10-k)+(j-k)-1,:] = img
                     test_face_number[(i-1)*(10-k)+(j-k)-1] = people_num
 
@@ -39,18 +41,14 @@ def submean(target_data, mean_data):
     return target_data
 
 print("Project Start...")
-scale = 0.5
-k = 4
-train_face,train_face_number,test_face,test_face_number = loadimage(os.getcwd()+'/att_faces',k,scale)
+
+train_face,train_face_number,test_face,test_face_number = loadimage(os.getcwd()+'/att_faces')
 img_mean = train_face.mean(axis = 0).reshape((1, train_face.shape[1]))
 train_face = submean(train_face, img_mean)
 test_face = submean(test_face, img_mean)
 
-cov = np.zeros((train_face.shape[1],train_face.shape[1]))
+
 cov = np.dot(train_face.T, train_face)
-l = np.zeros(train_face.shape[1])
-v = np.zeros((train_face.shape[1],train_face.shape[1]))
-#l, v = la.eig(cov)
 print("Calculate l & v")
 l, v = np.linalg.eig(cov)
 
@@ -58,6 +56,7 @@ mix = np.vstack((l,v))
 mix = mix.T[np.lexsort(mix[::-1,:])].T[:,::-1]
 v = np.delete(mix, 0, axis = 0)
 
+#show feature maps
 #plt.figure('Feature Map')
 #r, c = (4, 10)
 #for i in np.linspace(1, r * c, r * c).astype(np.int8):
