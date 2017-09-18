@@ -1,12 +1,13 @@
 ![principal components analysis](https://user-images.githubusercontent.com/20944641/30513670-bd46d20c-9b39-11e7-9ad8-405d8c175c30.png)
 # Face recognition using PCA(Principal Components Analysis) with ORL database
 
-[![Build Status](https://travis-ci.org/SilvesterHsu/PCA_ORL_Python.svg?branch=master)](https://travis-ci.org/SilvesterHsu/PCA_ORL_Python)	[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SilvesterHsu/PCA_ORL_Python/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SilvesterHsu/PCA_ORL_Python/?branch=master)	[![Libraries.io for releases](https://img.shields.io/badge/release-v0.0.3-orange.svg)]()
+[![Build Status](https://travis-ci.org/SilvesterHsu/PCA_ORL_Python.svg?branch=master)](https://travis-ci.org/SilvesterHsu/PCA_ORL_Python)	[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SilvesterHsu/PCA_ORL_Python/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SilvesterHsu/PCA_ORL_Python/?branch=master)	[![Libraries.io for releases](https://img.shields.io/badge/release-v0.0.4-orange.svg)]()
 
 This is a face recognition illustration using PCA via python.  
   
 * [Introduction](https://github.com/SilvesterHsu/ORLFaceRecognition-PCA#introduction)  
 * [Installation](https://github.com/SilvesterHsu/ORLFaceRecognition-PCA#installation)  
+* [Run Program](https://github.com/SilvesterHsu/ORLFaceRecognition-PCA#runprogram)
 * [To Do](https://github.com/SilvesterHsu/ORLFaceRecognition-PCA#todo)  
 
 ## Introduction
@@ -51,10 +52,20 @@ You can use `python3 -V` to check your python version.
 
 The necessary packages are already in the file `requirements.txt`. So you can use `pip3` to install them easily.  
 ```
+cd PCA_ORL_Python
 pip3 install -r requirements.txt
 ```  
+## Run Program
+To run this code, you can run both in a IDE or a terminal. I will just show the way run in a terminal.
+```
+python3 PCA.py
+```  
+![image](https://user-images.githubusercontent.com/20944641/30528968-dcd33c5a-9c6a-11e7-973d-4fa4dcdfa222.png)
 
-## TODO: 
+## TODO 
+* Modulize some functions
+* Speed up eig function
+* Add more detail comment
 
 
 
