@@ -7,7 +7,7 @@ This is a face recognition illustration using PCA via python.
   
 * [Introduction](https://github.com/SilvesterHsu/ORLFaceRecognition-PCA#introduction)  
 * [Installation](https://github.com/SilvesterHsu/ORLFaceRecognition-PCA#installation)  
-* [Run Program](https://github.com/SilvesterHsu/ORLFaceRecognition-PCA#runprogram)
+* [Run Program](https://github.com/SilvesterHsu/ORLFaceRecognition-PCA#run-program)
 * [To Do](https://github.com/SilvesterHsu/ORLFaceRecognition-PCA#todo)  
 
 ## Introduction
