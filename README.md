@@ -1,7 +1,7 @@
 ![principal components analysis](https://user-images.githubusercontent.com/20944641/30513670-bd46d20c-9b39-11e7-9ad8-405d8c175c30.png)
 # Face recognition using PCA(Principal Components Analysis) with ORL database
 
-[![Build Status](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA.svg?branch=master)](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA)	[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/?branch=master)	[![Libraries.io for releases](https://img.shields.io/badge/release-v0.0.4-orange.svg)]()
+[![Build Status](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA.svg?branch=master)](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA)	[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/?branch=master)	[![Libraries.io for releases](https://img.shields.io/badge/release-v0.0.5-orange.svg)]()
 
 This is a face recognition illustration using PCA via python.  
   
