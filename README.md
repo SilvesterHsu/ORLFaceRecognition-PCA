@@ -18,7 +18,7 @@ We choose [The ORL Database of Faces](http://www.cl.cam.ac.uk/research/dtg/attar
 ![image](https://user-images.githubusercontent.com/20944641/30518453-02e300c0-9bb1-11e7-8a3b-cc5996ef5c0a.png) 
 
 ### 2. recognition
-We use [*Euclidean Distance*](https://en.wikipedia.org/wiki/Euclidean_distance)to measure the distance between two coordinate points in high dimensional space (each coordinate point represents a face image). The smaller the metric, the closer the two coordinate points are in the high-dimensional space (not near the strict sense, but near the Euclidean space), the more the face image represented by the two coordinate points similar. Here you can set the distance threshold to determine the distance at which the two coordinate points represented the same face.  
+We use [*Euclidean Distance*](https://en.wikipedia.org/wiki/Euclidean_distance) to measure the distance between two coordinate points in high dimensional space (each coordinate point represents a face image). The smaller the metric, the closer the two coordinate points are in the high-dimensional space (not near the strict sense, but near the Euclidean space), the more the face image represented by the two coordinate points similar. Here you can set the distance threshold to determine the distance at which the two coordinate points represented the same face.  
 ![image](https://user-images.githubusercontent.com/20944641/30518885-4459e9f0-9bbc-11e7-988d-fb78164b13c0.png)  
   
 ## Installation
@@ -29,23 +29,23 @@ IDE: [**PyCharm CE**](https://www.jetbrains.com/pycharm/download/)
 
 ### Step 1: Install Python3
 I only listed the steps for installing Python3 on Mac, and the installation steps for the rest of the operating systems are available for download and documentation from [Python3](https://www.python.org/).  
-First we need to install Xcode command line tool. Open a terminal, run the commands:  
+First we need to install Xcode command line tool. It is kind of necessary environment we need to install python. So open a terminal, and run the command as below.  
 ```
 xcode-select--install
 ```  
-It is easy install python through [Homebrew](https://brew.sh/index_zh-tw.html).  
+It is easy install python through [Homebrew](https://brew.sh/index_zh-tw.html). The function of Homebrew is much liable to that of command `apt` under **Ubuntu**. The means you install packages are also similar. For instance, use `brew install <packages>` to install new packages.   
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```  
-The network maybe slow due to the GFW, you can use [shadowsocks](https://github.com/shadowsocks/shadowsocks-iOS) in terminal to speed up.  
+In addition, it is worth noting that the network maybe slow due to the GFW while using **HomeBrew**. You can, therefore, use [shadowsocks](https://github.com/shadowsocks/shadowsocks-iOS) in terminal to proxy your network.  
 ```
 export ALL_PROXY=socks5://127.0.0.1:1080
 ```  
-Now, we are ready to install Python:  
+Now, well preparing, we can install Python via **HomeBrew**:  
 ```
 brew install python3
 ```  
-You can use `python3 -V` to check your python version.  
+It won't take a long time. After installing python, you shall use `python3` to check whether **Python3** is installed. Besides, you can use `python3 -V` to check your python version.  
 ![image](https://user-images.githubusercontent.com/20944641/30519531-38a3458e-9bcb-11e7-9fdc-333a2b8b4f9e.png)  
  
 ### Step 2: Install Packages
@@ -56,14 +56,13 @@ cd PCA_ORL_Python
 pip3 install -r requirements.txt
 ```  
 ## Run Program
-To run this code, you can run both in a IDE or a terminal. I will just show the way run in a terminal.
+To run this code, you can run both in a IDE or terminal.
 ```
 python3 PCA.py
 ```  
 ![image](https://user-images.githubusercontent.com/20944641/30528968-dcd33c5a-9c6a-11e7-973d-4fa4dcdfa222.png)
 
 ## TODO 
-* Modulize some functions
 * Speed up eig function
 * Add more detail comment
 
