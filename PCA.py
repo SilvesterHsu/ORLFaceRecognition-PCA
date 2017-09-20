@@ -12,7 +12,6 @@ principal_percent = 0.3
 # covert image to sole vector
 def img2vector(filename):
     imgVector = misc.imresize(plt.imread(filename), scale).flatten()
-    #imgVector = plt.imread(filename).flatten()
     return imgVector.astype(np.float)
 
 # load image from diretion
@@ -35,7 +34,7 @@ def loadimage(dataSetDir):
                     test_face[(i-1)*(10-k)+(j-k)-1,:] = img
                     test_face_number[(i-1)*(10-k)+(j-k)-1] = people_num
 
-    return train_face,train_face_number,test_face,test_face_number
+    return train_face,train_face_number,test_face,test_face_number #tuple
 
 # subtract a vector from a matrex
 def subvector(target_matrex, target_vector):
