@@ -53,6 +53,8 @@ def submean(train_data, test_data):
 train_face,train_face_number,test_face,test_face_number = loadimage(os.getcwd()+'/att_faces')
 train_face, test_face = submean(train_face, test_face)
 
+# math calculate: the relevant mathematical formula can be found in the doc document
+# build high-dimensional space
 cov = np.dot(train_face.T, train_face)
 print("Calculate eigenvalues & eigenvectors")
 l, v = np.linalg.eig(cov)
@@ -71,13 +73,13 @@ if feature_face == 1:
         plt.imshow(v[:, i-1].real.reshape(int(112 * scale), int(92 * scale)), cmap='gray')
         plt.axis('off')
 
-
+# select the principal components and map face images into high dimensional space
 v = v[:,0:int(v.shape[1]*principal_percent)]
 train_face = np.dot(train_face, v)
 test_face = np.dot(test_face , v)
 
+# recognise via measuring educlidean distance in high dimentional space
 count = 0
-
 for i in np.linspace(0, test_face.shape[0] - 1, test_face.shape[0]).astype(np.int64):
     sub = subvector(train_face,test_face[i, :].reshape((1,test_face.shape[1])))
     dis = np.linalg.norm(sub, axis = 1)
@@ -85,6 +87,7 @@ for i in np.linspace(0, test_face.shape[0] - 1, test_face.shape[0]).astype(np.in
     if train_face_number[fig] == test_face_number[i]:
         count = count + 1
 correct_rate = count / test_face.shape[0]
-print("Principal =", principal_percent * 100, "%, count for", int(v.shape[1]*principal_percent), "principal eigenvectors")
+
+# show the parameters and results
+print("Principal rate=", principal_percent * 100, "%, count for", int(v.shape[1]*principal_percent), "principal eigenvectors")
 print("Correct rate =", correct_rate * 100 , "%")
-print("Finish...")
