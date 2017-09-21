@@ -1,7 +1,7 @@
 ![principal components analysis](https://user-images.githubusercontent.com/20944641/30513670-bd46d20c-9b39-11e7-9ad8-405d8c175c30.png)
 # Face recognition using PCA(Principal Components Analysis) with ORL database
 
-[![Build Status](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA.svg?branch=master)](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA)	[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/?branch=master)	[![Libraries.io for releases](https://img.shields.io/badge/release-v0.0.5-orange.svg)]()
+[![Build Status](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA.svg?branch=master)](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA)	[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/?branch=master)	[![Libraries.io for releases](https://img.shields.io/badge/release-v0.0.6-orange.svg)]()
 
 This is a face recognition illustration using PCA via python.  
   
@@ -14,7 +14,7 @@ This is a face recognition illustration using PCA via python.
 This program is mainly used for face recognition. Face recognition can be broadly divided into two parts: **data processing** and **recognition**.  
 
 ### 1. data processing
-We choose [The ORL Database of Faces](http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html) as database. After a series of basic image preprocessing, we map each image column quantitatively. After that, we piled the vectors horizontally into a matrix, using [*Principal Components Analysis* ](http://psycnet.apa.org/record/1934-00645-001)to reduce the dimension of matrix. Finally, the column vector of each image is projected in a point in the high dimensional space.  
+We choose [The ORL Database of Faces](http://www.cl.cam.ac.uk/research/dtg/attarchive/facedatabase.html) as database. After a series of basic image preprocessing, we map each image column quantitatively. After that, we piled the vectors horizontally into a matrix, and use [*Principal Components Analysis* ](http://psycnet.apa.org/record/1934-00645-001)to reduce the dimension of matrix. Finally, the column vector of each image is projected in a point in the high dimensional space.  
 ![image](https://user-images.githubusercontent.com/20944641/30518453-02e300c0-9bb1-11e7-8a3b-cc5996ef5c0a.png) 
 
 ### 2. recognition
@@ -28,12 +28,12 @@ Operating Systems: **Mac OS 10.10**
 IDE: [**PyCharm CE**](https://www.jetbrains.com/pycharm/download/)
 
 ### Step 1: Install Python3
-I only listed the steps for installing Python3 on Mac, and the installation steps for the rest of the operating systems are available for download and documentation from [Python3](https://www.python.org/).  
+I only list the steps for installing Python3 on Mac, and the installation steps for the rest of the operating systems are available for download and documentation from [Python3](https://www.python.org/).  
 First we need to install Xcode command line tool. It is kind of necessary environment we need to install python. So open a terminal, and run the command as below.  
 ```
 xcode-select--install
 ```  
-It is easy install python through [Homebrew](https://brew.sh/index_zh-tw.html). The function of Homebrew is much liable to that of command `apt` under **Ubuntu**. The means you install packages are also similar. For instance, use `brew install <packages>` to install new packages.   
+It is easy install python through [Homebrew](https://brew.sh/index_zh-tw.html). The function of Homebrew is much liable to that of command `apt` under **Ubuntu**. The means you install packages are also similar. For instance, we use `brew install <packages>` to install new packages.   
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```  
@@ -50,7 +50,7 @@ It won't take a long time. After installing python, you shall use `python3` to c
  
 ### Step 2: Install Packages
 
-The necessary packages are already in the file `requirements.txt`. So you can use `pip3` to install them easily.  
+The necessary packages are already in the file `requirements.txt`. So you can use `pip3` to install them all in an easy way.  
 ```
 cd PCA_ORL_Python
 pip3 install -r requirements.txt
@@ -63,8 +63,7 @@ python3 PCA.py
 ![image](https://user-images.githubusercontent.com/20944641/30528968-dcd33c5a-9c6a-11e7-973d-4fa4dcdfa222.png)
 
 ## TODO 
-* Speed up eig function
-* Add more detail comment
+* Offer mathematical formula documents
 
 
 
