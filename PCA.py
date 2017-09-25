@@ -3,11 +3,24 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 from scipy import misc
+import argparse
 
-scale = 0.4
-k = 4
-feature_face = 0
-principal_percent = 0.3
+parser = argparse.ArgumentParser(description='PCA ORL')
+parser.add_argument('--image-scale', type=float, default=0.4, metavar='scale',
+                    help='scale rate for image (default: 0.4)')
+parser.add_argument('--train-perperson', type=int, default=4, metavar='k',
+                    help='training number per-person minimal to 1, maximum to 9 (default: 4)')
+parser.add_argument('--print-feature-face', type=bool, default=False, metavar='feature_face',
+                    help='print feature face')
+parser.add_argument('--principal-rate', type=float, default=0.3, metavar='principal_percent',
+                    help='random seed (default: 1)')
+
+args = parser.parse_args()
+
+scale = args.image_scale
+k = args.train_perperson
+feature_face = args.print_feature_face
+principal_percent = args.principal_rate
 
 # covert image to sole vector
 def img2vector(filename):
@@ -65,7 +78,7 @@ mix = mix.T[np.lexsort(mix[::-1,:])].T[:,::-1]
 v = np.delete(mix, 0, axis = 0)
 
 #show feature maps
-if feature_face == 1:
+if feature_face == True:
     plt.figure('Feature Map')
     r, c = (4, 10)
     for i in np.linspace(1, r * c, r * c).astype(np.int8):
