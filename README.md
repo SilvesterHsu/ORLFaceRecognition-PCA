@@ -41,7 +41,7 @@ Now, well preparing, we can install Python via **HomeBrew**:
 ```
 brew install python3
 ```  
-It won't take a long time. If don't success, try [Proxy Note](https://github.com/SilvesterHsu/ORLFaceRecognition-PCA###proxy-note). After installing python, you shall use `python3` to check whether **Python3** is installed. Besides, you can use `python3 -V` to check your python version.  
+It won't take a long time. If don't success, try [Proxy Note](https://github.com/SilvesterHsu/ORLFaceRecognition-PCA#proxy-note). After installing python, you shall use `python3` to check whether **Python3** is installed. Besides, you can use `python3 -V` to check your python version.  
 ![image](https://user-images.githubusercontent.com/20944641/30519531-38a3458e-9bcb-11e7-9fdc-333a2b8b4f9e.png)  
 #### Proxy Note
 In addition, it is worth noting that the network maybe slow due to the GFW while using **HomeBrew**. You can, therefore, use [shadowsocks](https://github.com/shadowsocks/shadowsocks-iOS) in terminal to proxy your network.  
