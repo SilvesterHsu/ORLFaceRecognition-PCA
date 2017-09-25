@@ -1,7 +1,7 @@
 ![principal components analysis](https://user-images.githubusercontent.com/20944641/30513670-bd46d20c-9b39-11e7-9ad8-405d8c175c30.png)
 # Face recognition using PCA(Principal Components Analysis) with ORL database
 
-[![Build Status](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA.svg?branch=master)](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA)	[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/?branch=master)	[![Libraries.io for releases](https://img.shields.io/badge/release-v0.0.6-orange.svg)]()
+[![Build Status](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA.svg?branch=master)](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA)	[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/?branch=master)	[![Libraries.io for releases](https://img.shields.io/badge/release-v0.1.0-orange.svg)]()
 
 This is a face recognition illustration using PCA via python.  
   
@@ -37,16 +37,18 @@ It is easy install python through [Homebrew](https://brew.sh/index_zh-tw.html). 
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```  
-In addition, it is worth noting that the network maybe slow due to the GFW while using **HomeBrew**. You can, therefore, use [shadowsocks](https://github.com/shadowsocks/shadowsocks-iOS) in terminal to proxy your network.  
-```
-export ALL_PROXY=socks5://127.0.0.1:1080
-```  
 Now, well preparing, we can install Python via **HomeBrew**:  
 ```
 brew install python3
 ```  
-It won't take a long time. After installing python, you shall use `python3` to check whether **Python3** is installed. Besides, you can use `python3 -V` to check your python version.  
+It won't take a long time. If don't success, try [Proxy Note](https://github.com/SilvesterHsu/ORLFaceRecognition-PCA###proxy-note). After installing python, you shall use `python3` to check whether **Python3** is installed. Besides, you can use `python3 -V` to check your python version.  
 ![image](https://user-images.githubusercontent.com/20944641/30519531-38a3458e-9bcb-11e7-9fdc-333a2b8b4f9e.png)  
+#### Proxy Note
+In addition, it is worth noting that the network maybe slow due to the GFW while using **HomeBrew**. You can, therefore, use [shadowsocks](https://github.com/shadowsocks/shadowsocks-iOS) in terminal to proxy your network.  
+```
+export ALL_PROXY=socks5://127.0.0.1:1080
+```  
+
  
 ### Step 2: Install Packages
 
@@ -55,15 +57,21 @@ The necessary packages are already in the file `requirements.txt`. So you can us
 cd PCA_ORL_Python
 pip3 install -r requirements.txt
 ```  
+#### Proxy Note
+Proxy can also be used to speed up the process of `pip3 install`. Be aware, pip doesn't support `socks5`, so you can only use http proxy.  
+```
+export ALL_PROXY=http://server:port
+```
 ## Run Program
 To run this code, you can run both in a IDE or terminal.
 ```
-python3 PCA.py
+python3 PCA.py --image-scale 0.5 --train-perperson 5 --print-feature-face false --principal-rate 0.5
 ```  
-![image](https://user-images.githubusercontent.com/20944641/30528968-dcd33c5a-9c6a-11e7-973d-4fa4dcdfa222.png)
+![image](https://user-images.githubusercontent.com/20944641/30792527-8d0cc870-a1ed-11e7-9e29-1bdd259c73c0.png)
 
 ## TODO 
 * Offer mathematical formula documents
+* Fix plot problem
 
 
 
