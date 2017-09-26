@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*
 import numpy as np
 import os
-import matplotlib.pyplot as plt
+import  matplotlib.image as mpimg
 from scipy import misc
 import argparse
 
@@ -24,7 +24,8 @@ principal_percent = args.principal_rate
 
 # covert image to sole vector
 def img2vector(filename):
-    imgVector = misc.imresize(plt.imread(filename), scale).flatten()
+    #img = plt.imread(filename)
+    imgVector = misc.imresize(mpimg.imread(filename), scale).flatten()
     return imgVector.astype(np.float)
 
 # load image from diretion
@@ -79,6 +80,7 @@ v = np.delete(mix, 0, axis = 0)
 
 #show feature maps
 if feature_face == True:
+    import matplotlib.pyplot as plt
     plt.figure('Feature Map')
     r, c = (4, 10)
     for i in np.linspace(1, r * c, r * c).astype(np.int8):
