@@ -1,7 +1,7 @@
 ![principal components analysis](https://user-images.githubusercontent.com/20944641/30513670-bd46d20c-9b39-11e7-9ad8-405d8c175c30.png)
 # Face recognition using PCA(Principal Components Analysis) with ORL database
 
-[![Build Status](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA.svg?branch=master)](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA)	[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/?branch=master)	[![Libraries.io for releases](https://img.shields.io/badge/release-v0.1.0-orange.svg)]()
+[![Build Status](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA.svg?branch=master)](https://travis-ci.org/SilvesterHsu/ORLFaceRecognition-PCA)	[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SilvesterHsu/ORLFaceRecognition-PCA/?branch=master)	[![Libraries.io for releases](https://img.shields.io/badge/release-v0.1.2-orange.svg)]()
 
 This is a face recognition illustration using PCA via python.  
   
@@ -65,13 +65,12 @@ export ALL_PROXY=http://server:port
 ## Run Program
 To run this code, you can run both in a IDE or terminal.
 ```
-python3 PCA.py --image-scale 0.5 --train-perperson 5 --print-feature-face false --principal-rate 0.5
+python3 PCA.py --image-scale 0.4 --train-per-person 3 --print-feature-face True --principal-rate 0.3
 ```  
 ![image](https://user-images.githubusercontent.com/20944641/30792527-8d0cc870-a1ed-11e7-9e29-1bdd259c73c0.png)
 
 ## TODO 
 * Offer mathematical formula documents
-* Fix plot problem
 
 
 

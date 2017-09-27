@@ -5,26 +5,25 @@ import  matplotlib.image as mpimg
 from scipy import misc
 import argparse
 
+# initialize parameters
 parser = argparse.ArgumentParser(description='PCA ORL')
-parser.add_argument('--image-scale', type=float, default=0.4, metavar='scale',
-                    help='scale rate for image (default: 0.4)')
-parser.add_argument('--train-perperson', type=int, default=4, metavar='k',
+parser.add_argument('--image-scale', type=float, default=0.5, metavar='scale',
+                    help='scale rate for image (default: 0.5)')
+parser.add_argument('--train-per-person', type=int, default=4, metavar='k',
                     help='training number per-person minimal to 1, maximum to 9 (default: 4)')
 parser.add_argument('--print-feature-face', type=bool, default=False, metavar='feature_face',
-                    help='print feature face')
-parser.add_argument('--principal-rate', type=float, default=0.3, metavar='principal_percent',
+                    help='print feature face (default: False)')
+parser.add_argument('--principal-rate', type=float, default=1, metavar='principal_percent',
                     help='random seed (default: 1)')
-
 args = parser.parse_args()
 
 scale = args.image_scale
-k = args.train_perperson
+k = args.train_per_person
 feature_face = args.print_feature_face
 principal_percent = args.principal_rate
 
 # covert image to sole vector
 def img2vector(filename):
-    #img = plt.imread(filename)
     imgVector = misc.imresize(mpimg.imread(filename), scale).flatten()
     return imgVector.astype(np.float)
 
@@ -51,10 +50,10 @@ def loadimage(dataSetDir):
     return train_face,train_face_number,test_face,test_face_number #tuple
 
 # subtract a vector from a matrex
-def subvector(target_matrex, target_vector):
-    vector4matrex = np.repeat(target_vector, target_matrex.shape[0],axis = 0)
-    target_matrex = target_matrex - vector4matrex
-    return target_matrex
+def subvector(target_matrix, target_vector):
+    vector4matrix = np.repeat(target_vector, target_matrix.shape[0],axis = 0)
+    target_matrix = target_matrix - vector4matrix
+    return target_matrix
 
 # both data subtract mean data of train data
 def submean(train_data, test_data):
@@ -70,23 +69,12 @@ train_face, test_face = submean(train_face, test_face)
 # math calculate: the relevant mathematical formula can be found in the doc document
 # build high-dimensional space
 cov = np.dot(train_face.T, train_face)
-print("Calculate eigenvalues & eigenvectors")
+# calculate eigenvalues & eigenvectors
 l, v = np.linalg.eig(cov)
-
-print("Sort eigenvectors by the value of eigenvalues")
+# sort eigenvectors by the value of eigenvalues
 mix = np.vstack((l,v))
 mix = mix.T[np.lexsort(mix[::-1,:])].T[:,::-1]
 v = np.delete(mix, 0, axis = 0)
-
-#show feature maps
-if feature_face == True:
-    import matplotlib.pyplot as plt
-    plt.figure('Feature Map')
-    r, c = (4, 10)
-    for i in np.linspace(1, r * c, r * c).astype(np.int8):
-        plt.subplot(r,c,i)
-        plt.imshow(v[:, i-1].real.reshape(int(112 * scale), int(92 * scale)), cmap='gray')
-        plt.axis('off')
 
 # select the principal components and map face images into high dimensional space
 v = v[:,0:int(v.shape[1]*principal_percent)]
@@ -106,3 +94,14 @@ correct_rate = count / test_face.shape[0]
 # show the parameters and results
 print("Principal rate=", principal_percent * 100, "%, count for", int(v.shape[1]*principal_percent), "principal eigenvectors")
 print("Correct rate =", correct_rate * 100 , "%")
+
+#show feature maps
+if feature_face == True:
+    import matplotlib.pyplot as plt
+    plt.figure('Feature Maps')
+    r, c = (4, 10)
+    for i in range(r * c):
+        plt.subplot(r,c,i+1)
+        plt.imshow(v[:, i].real.reshape(int(112 * scale), int(92 * scale)), cmap='gray')
+        plt.axis('off')
+    plt.show()
