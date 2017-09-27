@@ -49,7 +49,6 @@ In addition, it is worth noting that the network maybe slow due to the GFW while
 export ALL_PROXY=socks5://127.0.0.1:1080
 ```  
 
- 
 ### Step 2: Install Packages
 
 The necessary packages are already in the file `requirements.txt`. So you can use `pip3` to install them all in an easy way.  
